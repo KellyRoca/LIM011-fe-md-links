@@ -1,0 +1,38 @@
+{
+  "name": "mark-down",
+  "description": "description",
+  "authors": "Kelly Roca <rocarondinel.kelly@gmail.com>",
+  "version": "1.0.0",
+  "requires": true,
+  "keywords": [
+    "javascript",
+    "jest",
+    "mark",
+    "path"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "eslint": "eslint --ext .js src/ test/",
+    "pretest": "npm run eslint",
+    "test": "jest --coverage",
+    "start": "serve src/"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^24.8.0",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.1.2",
+    "fetch-mock": "^9.0.0-beta.2",
+    "jest": "^24.9.0",
+    "regenerator-runtime": "^0.13.1",
+    "serve": "^11.0.2"
+  },
+  "dependencies": {
+    "marked": "^0.8.0",
+    "node-fetch": "^2.6.0"
+}
+}
