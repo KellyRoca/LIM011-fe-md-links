@@ -92,7 +92,7 @@ const validateEachLink = (linkDataArray) => {
   return Promise.all(arrayWithOptionValidate);
 };
 
-const mdLinks = (route, validate) => {
+export const mdLinks = (route, validate) => {
   const promise = new Promise((resolve, reject) => {
     const routeAbsolute = verifyRoute(route);
     const arrayAllMdRoutes = nameOfAllMdRoutes(routeAbsolute);
@@ -103,14 +103,6 @@ const mdLinks = (route, validate) => {
 };
 
 mdLinks('src/ejemplo/ejemplito/ejemplo.md', { validate: true }).then((resolve) => console.log(resolve));
-// validateEachLink('/home/kelly/Desktop/Markdown/LIM011-fe-md-links/README.md');
-// console.log(mdLinks('src/ejemplo/ejemplito/ejemplo.md', false));
-
-
-// mdLinks('/home/kelly/Desktop/Markdown/LIM011-fe-md-links/README.md', true);
-
-// Promise.all(mdLinks('src/prueba/prubita/pruebita.js', true)).then((response) => console.log(response));
-// Promise.all(validateEachLink('src')).then((response) => console.log(response));
 
 exports.verifyAbsolutePath = verifyAbsolutePath;
 exports.transformToAbsolute = transformToAbsolute;
