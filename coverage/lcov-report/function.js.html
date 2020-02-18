@@ -22,9 +22,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">87.06% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>74/85</span>
+                <span class='fraction'>66/77</span>
             </div>
         
             
@@ -43,9 +43,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">88% </span>
+                <span class="strong">86.57% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>66/75</span>
+                <span class='fraction'>58/67</span>
             </div>
         
             
@@ -180,7 +180,13 @@
 <a name='L122'></a><a href='#L122'>122</a>
 <a name='L123'></a><a href='#L123'>123</a>
 <a name='L124'></a><a href='#L124'>124</a>
-<a name='L125'></a><a href='#L125'>125</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -245,7 +251,7 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -256,9 +262,9 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -286,6 +292,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -294,16 +302,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 /* eslint-disable max-len */
@@ -409,25 +421,31 @@ const mdLinks = (route, validate) =&gt; {
 };
 &nbsp;
 mdLinks('src/ejemplo/ejemplito/ejemplo.md', { validate: true }).then(<span class="fstat-no" title="function not covered" >(r</span>esolve) =&gt; <span class="cstat-no" title="statement not covered" >console.log(resolve))</span>;
-// validateEachLink('/home/kelly/Desktop/Markdown/LIM011-fe-md-links/README.md');
-// console.log(mdLinks('src/ejemplo/ejemplito/ejemplo.md', false));
 &nbsp;
-&nbsp;
-// mdLinks('/home/kelly/Desktop/Markdown/LIM011-fe-md-links/README.md', true);
-&nbsp;
-// Promise.all(mdLinks('src/prueba/prubita/pruebita.js', true)).then((response) =&gt; console.log(response));
-// Promise.all(validateEachLink('src')).then((response) =&gt; console.log(response));
-&nbsp;
-exports.verifyAbsolutePath = verifyAbsolutePath;
-exports.transformToAbsolute = transformToAbsolute;
-exports.verifyIsFile = verifyIsFile;
-exports.verifyIsDirectory = verifyIsDirectory;
-exports.verifyIsMd = verifyIsMd;
-exports.getPathInDirectory = getPathInDirectory;
-exports.verifyRoute = verifyRoute;
-exports.nameOfAllMdRoutes = nameOfAllMdRoutes;
-exports.arrayOfAllMdLinks = arrayOfAllMdLinks;
-exports.readAllFile = readAllFile;
+module.exports = mdLinks;
+module.exports = {
+  verifyAbsolutePath,
+  transformToAbsolute,
+  verifyIsFile,
+  verifyIsDirectory,
+  verifyIsMd,
+  getPathInDirectory,
+  verifyRoute,
+  nameOfAllMdRoutes,
+  arrayOfAllMdLinks,
+  readAllFile,
+};
+// exports.mdLinks = mdLinks;
+// exports.verifyAbsolutePath = verifyAbsolutePath;
+// exports.transformToAbsolute = transformToAbsolute;
+// exports.verifyIsFile = verifyIsFile;
+// exports.verifyIsDirectory = verifyIsDirectory;
+// exports.verifyIsMd = verifyIsMd;
+// exports.getPathInDirectory = getPathInDirectory;
+// exports.verifyRoute = verifyRoute;
+// exports.nameOfAllMdRoutes = nameOfAllMdRoutes;
+// exports.arrayOfAllMdLinks = arrayOfAllMdLinks;
+// exports.readAllFile = readAllFile;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -435,7 +453,7 @@ exports.readAllFile = readAllFile;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Feb 13 2020 18:03:02 GMT-0500 (Peru Standard Time)
+                at Mon Feb 17 2020 17:45:25 GMT-0500 (Peru Standard Time)
             </div>
         </div>
         <script src="prettify.js"></script>

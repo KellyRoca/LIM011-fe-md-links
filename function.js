@@ -87,30 +87,53 @@ const validateEachLink = (linkDataArray) => {
         obj.message = 'fail';
         return obj;
       })
-      .catch(() => console.log('hola')));
+      .catch((reject) => {
+        obj.status = 'No existe status';
+        obj.message = 'fail';
+        return obj;
+      }));
   });
   return Promise.all(arrayWithOptionValidate);
 };
 
-export const mdLinks = (route, validate) => {
+const mdLinks = (route, validate) => {
   const promise = new Promise((resolve, reject) => {
-    const routeAbsolute = verifyRoute(route);
-    const arrayAllMdRoutes = nameOfAllMdRoutes(routeAbsolute);
-    if (validate.validate === true) resolve(validateEachLink(arrayOfAllMdLinks(arrayAllMdRoutes)));
-    if (validate.validate === false) resolve(arrayOfAllMdLinks(arrayAllMdRoutes));
+    if (route === '') reject(new Error('Ruta no existe, ingrese una ruta válida'));
+    else {
+      const routeAbsolute = verifyRoute(route);
+      const arrayAllMdRoutes = nameOfAllMdRoutes(routeAbsolute);
+      if (validate.validate === true) resolve(validateEachLink(arrayOfAllMdLinks(arrayAllMdRoutes)));
+      if (validate.validate === false) resolve(arrayOfAllMdLinks(arrayAllMdRoutes));
+    }
   });
   return promise;
 };
 
-mdLinks('src/ejemplo/ejemplito/ejemplo.md', { validate: true }).then((resolve) => console.log(resolve));
+mdLinks('src/ejemplo/example.md', { validate: true })
+  .then((response) => console.log(response));
 
-exports.verifyAbsolutePath = verifyAbsolutePath;
-exports.transformToAbsolute = transformToAbsolute;
-exports.verifyIsFile = verifyIsFile;
-exports.verifyIsDirectory = verifyIsDirectory;
-exports.verifyIsMd = verifyIsMd;
-exports.getPathInDirectory = getPathInDirectory;
-exports.verifyRoute = verifyRoute;
-exports.nameOfAllMdRoutes = nameOfAllMdRoutes;
-exports.arrayOfAllMdLinks = arrayOfAllMdLinks;
-exports.readAllFile = readAllFile;
+// module.exports = mdLinks;
+module.exports = {
+  verifyAbsolutePath,
+  transformToAbsolute,
+  verifyIsFile,
+  verifyIsDirectory,
+  verifyIsMd,
+  getPathInDirectory,
+  verifyRoute,
+  nameOfAllMdRoutes,
+  arrayOfAllMdLinks,
+  readAllFile,
+  mdLinks,
+};
+// exports.mdLinks = mdLinks;
+// exports.verifyAbsolutePath = verifyAbsolutePath;
+// exports.transformToAbsolute = transformToAbsolute;
+// exports.verifyIsFile = verifyIsFile;
+// exports.verifyIsDirectory = verifyIsDirectory;
+// exports.verifyIsMd = verifyIsMd;
+// exports.getPathInDirectory = getPathInDirectory;
+// exports.verifyRoute = verifyRoute;
+// exports.nameOfAllMdRoutes = nameOfAllMdRoutes;
+// exports.arrayOfAllMdLinks = arrayOfAllMdLinks;
+// exports.readAllFile = readAllFile;

@@ -1,20 +1,17 @@
 #!/usr/bin/env node
-import { mdLinks } from './function.js';
-// import { stats } from './stats.js';
 
-// Grab provided args.
-const [,, ...args] = process.argv;
+const functionForCli = require('./functionForCli.js');
 
-// Print Hello Word
-console.log(`Hello World ${args.slice(0, 1)}`);
-console.log(`Hello World ${args.slice(1, 2)}`);
-console.log(`Hello World ${args.slice(2, 3)}`);
+const path = process.argv[2];
+const [,,, ...option] = process.argv;
 
-const route = args.slice(0, 1);
+const options = option.join(' ');
 
-const cliFunction = (path, options) => {
-  if (options === '--validate') return mdLinks(path, { validate: true });
-  //   if (options === '--stats') return stats(path);
-  //   if (options === '--stats --validate') return stats(path);
-  return 'hola';
-};
+if (path === '') {
+  console.log('Ruta no existe, ingrese una ruta válida');
+} else {
+  functionForCli(path, options)
+    .then((response) => {
+      console.log(response);
+    });
+}
