@@ -1,3 +1,2 @@
 [Accesibilidad Web](https://medium.com/adalab/programando-7-buenas-pr%C3%A1cticas-de-accesibilidad-web-ad141ea7597d)
-(https://eslint.org/docs/user-guide/getting-started)
-(https://eslint.org/docs/user-guide/getting-starteaa)
+[Hola](https://coderrocketfuel.com/article/get-the-path-of-the-current-working-directory-in-node-jsss/as)

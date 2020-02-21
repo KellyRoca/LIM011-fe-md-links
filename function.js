@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
 /* eslint-disable max-len */
 const path = require('path');
 const fs = require('fs');
@@ -87,8 +85,8 @@ const validateEachLink = (linkDataArray) => {
         obj.message = 'fail';
         return obj;
       })
-      .catch((reject) => {
-        obj.status = 'No existe status';
+      .catch(() => {
+        obj.status = 'No existe link';
         obj.message = 'fail';
         return obj;
       }));
@@ -98,10 +96,10 @@ const validateEachLink = (linkDataArray) => {
 
 const mdLinks = (route, validate) => {
   const promise = new Promise((resolve, reject) => {
-    if (route === '') reject(new Error('Ruta no existe, ingrese una ruta válida'));
+    const routeAbsolute = verifyRoute(route);
+    const arrayAllMdRoutes = nameOfAllMdRoutes(routeAbsolute);
+    if (fs.existsSync(routeAbsolute) === false) reject(new Error('Ruta no existe, ingrese una ruta válida'));
     else {
-      const routeAbsolute = verifyRoute(route);
-      const arrayAllMdRoutes = nameOfAllMdRoutes(routeAbsolute);
       if (validate.validate === true) resolve(validateEachLink(arrayOfAllMdLinks(arrayAllMdRoutes)));
       if (validate.validate === false) resolve(arrayOfAllMdLinks(arrayAllMdRoutes));
     }
@@ -109,11 +107,29 @@ const mdLinks = (route, validate) => {
   return promise;
 };
 
-mdLinks('src/ejemplo/example.md', { validate: true })
-  .then((response) => console.log(response));
+// const mdLinks = (route, validate) => {
+//   const promise = new Promise((resolve, reject) => {
+//     const routeAbsolute = verifyRoute(route);
+//     const arrayAllMdRoutes = nameOfAllMdRoutes(routeAbsolute);
+//     if (fs.existsSync(routeAbsolute) === false) reject(new Error('No existe esa ruta'));
+//     // if (typeof validate !== 'object') reject(new Error('Lea la documentación'));
+//     if (validate.validate === true) resolve(validateEachLink(arrayOfAllMdLinks(arrayAllMdRoutes)));
+//     if (validate.validate === false) resolve(arrayOfAllMdLinks(arrayAllMdRoutes));
+//   });
+//   return promise;
+// };
 
-// module.exports = mdLinks;
+// mdLinks('src', { validate: true })
+//   .then((response) => console.log(response));
+
+// mdLinks('src', { validate: false })
+//   .then((response) => console.log(response));
+
+// mdLinks('src/s', { validate: true })
+//   .then((response) => console.log(response)).catch((error) => console.log(error));
+
 module.exports = {
+  validateEachLink,
   verifyAbsolutePath,
   transformToAbsolute,
   verifyIsFile,
@@ -126,14 +142,3 @@ module.exports = {
   readAllFile,
   mdLinks,
 };
-// exports.mdLinks = mdLinks;
-// exports.verifyAbsolutePath = verifyAbsolutePath;
-// exports.transformToAbsolute = transformToAbsolute;
-// exports.verifyIsFile = verifyIsFile;
-// exports.verifyIsDirectory = verifyIsDirectory;
-// exports.verifyIsMd = verifyIsMd;
-// exports.getPathInDirectory = getPathInDirectory;
-// exports.verifyRoute = verifyRoute;
-// exports.nameOfAllMdRoutes = nameOfAllMdRoutes;
-// exports.arrayOfAllMdLinks = arrayOfAllMdLinks;
-// exports.readAllFile = readAllFile;
