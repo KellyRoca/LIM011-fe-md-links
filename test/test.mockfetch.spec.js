@@ -62,42 +62,47 @@ const arrayStats = {
 };
 
 describe('validateEachLink, valida cada link', () => {
-  it('debería retornar un array de objetos con las propiedades(5): href, text, file, status, message ', () => {
+  it('debería retornar un array de objetos con las propiedades(5): href, text, file, status, message ', (done) => {
     expect.assertions(1);
     return allFunctions.validateEachLink(array3Information).then((objectOfArray) => {
       expect(objectOfArray).toEqual(array5Information);
+      done();
     });
   });
 
-  it('debería retornar un array con un objeto con propiedades(5): href, text, file, status, message ', () => {
+  it('debería retornar un array con un objeto con propiedades(5): href, text, file, status, message ', (done) => {
     expect.assertions(1);
     return allFunctions.validateEachLink(arrayLinkUndefined).then((e) => {
       expect(e).toEqual(arrayValidateLinkUndefined);
+      done();
     });
   });
 });
 
 describe('mdLinks', () => {
-  it('debería retornar un array de objetos con las propiedades(3): href, text, file', () => {
+  it('debería retornar un array de objetos con las propiedades(3): href, text, file', (done) => {
     expect.assertions(1);
     return allFunctions.mdLinks('src', { validate: false }).then((data) => {
       expect(data).toEqual(array3Information);
+      done();
     });
   });
 
-  it('debería retornar un array de objetos con las propiedades(5): href, text, file, status, message', () => {
+  it('debería retornar un array de objetos con las propiedades(5): href, text, file, status, message', (done) => {
     expect.assertions(1);
     return allFunctions.mdLinks('src', { validate: true }).then((data) => {
       expect(data).toEqual(array5Information);
+      done();
     });
   });
 });
 
 describe('stats, muestra las estadísticas de la ruta pasada, los links totales, unicos y rotos', () => {
-  it('debería retornar un objeto con las propiedades(3): total, unique,broken ', () => {
+  it('debería retornar un objeto con las propiedades(3): total, unique,broken ', (done) => {
     expect.assertions(1);
     return stats('src').then((data) => {
       expect(data).toEqual(arrayStats);
+      done();
     });
   });
 });
@@ -111,31 +116,34 @@ const stringOnlyStats = 'Total: 2\nUnique: 2';
 const stringStatsAndValidate = 'Total: 2\nUnique: 2\nBroken: 1';
 
 describe('functionForCLi retorna strings de acuerdo a las opciones que se piden', () => {
-  it('debería retornar x c/link un string (5 propiedades) cuando opcion es --validate', () => {
+  it('debería retornar x c/link un string (5 propiedades) cuando opcion es --validate', (done) => {
     expect.assertions(1);
     return functionForCli('src', '--validate').then((data) => {
       expect(data).toEqual(string5Properties);
+      done();
     });
   });
 
-  it('debería retornar x c/link un string(3 propiedades) cuando no coloca opcion', () => {
+  it('debería retornar x c/link un string(3 propiedades) cuando no coloca opcion', (done) => {
     expect.assertions(1);
     return functionForCli('src').then((data) => {
       expect(data).toEqual(string3Properties);
     });
   });
 
-  it('debería retornar un string con (2 propiedades) cuando opcion es --stats', () => {
+  it('debería retornar un string con (2 propiedades) cuando opcion es --stats', (done) => {
     expect.assertions(1);
     return functionForCli('src', '--stats').then((data) => {
       expect(data).toEqual(stringOnlyStats);
+      done();
     });
   });
 
-  it('debería retornar un string con (3 propiedades) cuando opcion es --stats --validate', () => {
+  it('debería retornar un string con (3 propiedades) cuando opcion es --stats --validate', (done) => {
     expect.assertions(1);
     return functionForCli('src', '--stats --validate').then((data) => {
       expect(data).toEqual(stringStatsAndValidate);
+      done();
     });
   });
 });
