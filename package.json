@@ -15,7 +15,8 @@
     "eslint": "eslint --ext .js src/ test/",
     "pretest": "npm run eslint",
     "test": "jest --coverage",
-    "start": "serve src/"
+    "start": "serve src/",
+    "testEcho": "echo test"
   },
   "bin": {
     "md-links": "./cli.js"

@@ -128,6 +128,7 @@ describe('functionForCLi retorna strings de acuerdo a las opciones que se piden'
     expect.assertions(1);
     return functionForCli('src').then((data) => {
       expect(data).toEqual(string3Properties);
+      done();
     });
   });
 

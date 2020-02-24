@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 const path = require('path');
 const fs = require('fs');
 const marked = require('marked');
@@ -36,7 +35,8 @@ const nameOfAllMdRoutes = (route) => {
   // const routeAbsolute = verifyRoute(route);
   let arrayFile = [];
   if (verifyIsDirectory(route) === true) {
-    const arrayNameOfRoutes = getPathInDirectory(route).map((element) => path.join(route, element));
+    const arrayNameOfRoutes = getPathInDirectory(route)
+      .map((element) => path.join(route, element));
     arrayNameOfRoutes.forEach((el) => {
       if (verifyIsFile(el) === true) {
         arrayFile = arrayFile.concat(el);
@@ -106,27 +106,6 @@ const mdLinks = (route, validate) => {
   });
   return promise;
 };
-
-// const mdLinks = (route, validate) => {
-//   const promise = new Promise((resolve, reject) => {
-//     const routeAbsolute = verifyRoute(route);
-//     const arrayAllMdRoutes = nameOfAllMdRoutes(routeAbsolute);
-//     if (fs.existsSync(routeAbsolute) === false) reject(new Error('No existe esa ruta'));
-//     // if (typeof validate !== 'object') reject(new Error('Lea la documentación'));
-//     if (validate.validate === true) resolve(validateEachLink(arrayOfAllMdLinks(arrayAllMdRoutes)));
-//     if (validate.validate === false) resolve(arrayOfAllMdLinks(arrayAllMdRoutes));
-//   });
-//   return promise;
-// };
-
-// mdLinks('src', { validate: true })
-//   .then((response) => console.log(response));
-
-// mdLinks('src', { validate: false })
-//   .then((response) => console.log(response));
-
-// mdLinks('src/s', { validate: true })
-//   .then((response) => console.log(response)).catch((error) => console.log(error));
 
 module.exports = {
   validateEachLink,
